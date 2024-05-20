@@ -28,7 +28,7 @@ module "acm" {
   purpose     = "tfg"
   domain_name = "domain.com"
 
-  # Required variables
+  # Optional variables
   validate_cert = true
 }
 ```
