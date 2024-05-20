@@ -32,4 +32,19 @@ variable "owner" {
   }
 }
 
+variable "domain_name" {
+  description = "Name of the domain"
+  type        = string
+  default     = null
+  validation {
+    condition     = length(var.domain_name) >= 3
+    error_message = "You must define a domain name that exists on the account."
+  }
+}
+
 # OPTIONAL VARIABLES
+variable "validate_cert" {
+  description = "Validate the certificate"
+  type        = bool
+  default     = false
+}
