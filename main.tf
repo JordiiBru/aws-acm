@@ -1,7 +1,3 @@
-data "aws_route53_zone" "domain_created" {
-  name = var.domain_name
-}
-
 resource "aws_acm_certificate" "domain_certificate" {
   domain_name       = var.domain_name
   validation_method = "DNS"
