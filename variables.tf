@@ -48,3 +48,9 @@ variable "validate_cert" {
   type        = bool
   default     = false
 }
+
+variable "zone_id" {
+  description = "route53 zone id"
+  type = string
+  default = ""
+}
