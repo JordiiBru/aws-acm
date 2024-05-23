@@ -54,3 +54,7 @@ variable "zone_id" {
   type = string
   default = ""
 }
+
+variable "cert_record" {
+  
+}
