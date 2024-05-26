@@ -32,6 +32,7 @@ variable "owner" {
   }
 }
 
+# CUSTOM VARIABLES
 variable "domain_name" {
   description = "Name of the domain"
   type        = string
@@ -42,11 +43,10 @@ variable "domain_name" {
   }
 }
 
-# OPTIONAL VARIABLES
 variable "validate_cert" {
   description = "Validate the certificate"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "zone_name" {
