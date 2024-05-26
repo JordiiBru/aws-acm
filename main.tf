@@ -1,3 +1,7 @@
+data "aws_route53_zone" "jordibru_cloud" {
+  name         =  var.zone_name
+}
+
 resource "aws_acm_certificate" "domain_certificate" {
   domain_name       = var.domain_name
   validation_method = "DNS"
@@ -30,14 +34,13 @@ resource "aws_route53_record" "cert_validations" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = aws_route53_zone.hosted_zone.zone_id
+  zone_id         = data.aws_route53_zone.jordibru_cloud.zone_id
 }
 
 resource "aws_acm_certificate_validation" "validations" {
   count                   = var.validate_cert ? 1 : 0
   certificate_arn         = aws_acm_certificate.domain_certificate.arn
   validation_record_fqdns = [for record in aws_route53_record.cert_validations : record.fqdn]
-  #validation_record_fqdns = [for record in var.cert_record : record.fqdn]
 
   provider        = aws.us-east-1-acm
 }

@@ -49,8 +49,8 @@ variable "validate_cert" {
   default     = false
 }
 
-variable "zone_id" {
-  description = "route53 zone id"
+variable "zone_name" {
+  description = "route53 zone name"
   type = string
-  default = ""
+  default = "jordibru.cloud"
 }
