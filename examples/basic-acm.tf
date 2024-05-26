@@ -5,8 +5,7 @@ module "acm" {
   stage       = "test"
   owner       = "wanda"
   purpose     = "tfg"
-  domain_name = "jordibru.cloud"
-
-  # Required variables
-  validate_cert = true
+  
+  # Custom variables
+  domain_name = "test.jordibru.cloud"
 }
