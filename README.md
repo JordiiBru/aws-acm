@@ -10,7 +10,7 @@ Terraform module to create an ACM (AWS Certificate Manager) certificate with Rou
 | `purpose` | A short description about the purpose of the created resource. | string | Must match the regex `^[a-zA-Z0-9-_]*$`        | N/A     |
 | `owner`   | The owner of the deployed infrastructure.           | string | Must have more than three characters           | N/A     |
 
-## Optional Variables
+## Custom Variables
 
 | Name            | Description                                      | Type   | Default              |
 |-----------------|--------------------------------------------------|--------|----------------------|
