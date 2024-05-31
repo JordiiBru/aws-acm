@@ -29,7 +29,7 @@ Terraform module to create an ACM (AWS Certificate Manager) certificate with Rou
 
 ```hcl
 module "acm" {
-  source = "../"
+  source = "git@github.com:JordiiBru/aws-acm.git?ref=[TAG]"
 
   # Required variables
   stage   = "dev"
