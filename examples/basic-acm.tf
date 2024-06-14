@@ -1,7 +1,7 @@
 module "acm" {
   source = "../"
 
-  # Required variables
+  # Common variables
   stage   = "test"
   owner   = "wanda"
   purpose = "tfg"

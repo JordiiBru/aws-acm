@@ -12,9 +12,9 @@ Terraform module to create an ACM (AWS Certificate Manager) certificate with Rou
 
 ## Custom Variables
 
-| Name        | Description                 | Type   | Validation  | Default | Required |
-|-------------|-----------------------------|--------|-------------|---------|----------|
-| `subdomain` | The name of the subdomain.  | string |             |         | yes      |
+| Name        | Description                 | Type   | Validation                                                       | Default | Required |
+|-------------|-----------------------------|--------|------------------------------------------------------------------|---------|----------|
+| `subdomain` | The name of the subdomain.  | string | You must define a subdomain name with at least three characters. |         | yes      |
 
 ## Outputs
 
@@ -28,12 +28,12 @@ Terraform module to create an ACM (AWS Certificate Manager) certificate with Rou
 module "acm" {
   source = "git@github.com:JordiiBru/aws-acm.git?ref=[TAG]"
 
-  # Required variables
-  stage   = "dev"
+  # Common variables
+  stage   = "test"
   owner   = "wanda"
   purpose = "tfg"
 
   # Custom variables
-  domain_name = "dev-portfolio.jordibru.cloud"
+  subdomain = "portfolio" # This will create record portfolio.jordibru.cloud
 }
 ```
