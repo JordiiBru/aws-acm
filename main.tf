@@ -1,9 +1,9 @@
 data "aws_route53_zone" "jordibru_cloud" {
-  name = var.zone_name
+  name = "jordibru.cloud"
 }
 
 resource "aws_acm_certificate" "domain_certificate" {
-  domain_name       = var.domain_name
+  domain_name       = "${var.subdomain}.jordibru.cloud"
   validation_method = "DNS"
 
   lifecycle {
@@ -19,7 +19,6 @@ resource "aws_acm_certificate" "domain_certificate" {
   }
 }
 
-# record validation
 resource "aws_route53_record" "cert_validations" {
   for_each = {
     for dvo in aws_acm_certificate.domain_certificate.domain_validation_options : dvo.domain_name => {

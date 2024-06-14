@@ -1,4 +1,4 @@
-# REQUIRED VARIABLES
+# COMMON VARIABLES
 
 variable "stage" {
   description = "The stage of development (e.g., test, dev, staging, prod)."
@@ -34,25 +34,12 @@ variable "owner" {
 
 # CUSTOM VARIABLES
 
-variable "domain_name" {
-  description = "The name of the domain to attach the certificate."
+variable "subdomain" {
+  description = "The name of the subdomain."
   type        = string
-  default     = null
 
   validation {
-    condition     = length(var.domain_name) >= 3
-    error_message = "You must define a domain name with at least three characters that exists on the account."
+    condition     = length(var.subdomain) >= 3
+    error_message = "You must define a subdomain name with at least three characters."
   }
-}
-
-variable "validate_cert" {
-  description = "Indicate whether to validate the certificate."
-  type        = bool
-  default     = true
-}
-
-variable "zone_name" {
-  description = "The name of the Route 53 hosted zone."
-  type        = string
-  default     = "jordibru.cloud"
 }

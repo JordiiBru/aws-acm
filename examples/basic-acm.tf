@@ -7,5 +7,5 @@ module "acm" {
   purpose = "tfg"
 
   # Custom variables
-  domain_name = "test.jordibru.cloud"
+  subdomain = "portfolio" # This will create record portfolio.jordibru.cloud
 }

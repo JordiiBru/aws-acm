@@ -2,28 +2,25 @@
 
 Terraform module to create an ACM (AWS Certificate Manager) certificate with Route 53 resources for DNS validation.
 
-## Required Variables
+## Common Variables
 
-| Name      | Description                                         | Type   | Validation                                     | Default |
-|-----------|-----------------------------------------------------|--------|------------------------------------------------|---------|
-| `stage`   | The stage of development (e.g., test, dev, staging, prod). | string | Must be one of `test`, `dev`, `staging`, `prod` | N/A     |
-| `purpose` | A short description about the purpose of the created resource. | string | Must match the regex `^[a-zA-Z0-9-_]*$`        | N/A     |
-| `owner`   | The owner of the deployed infrastructure.           | string | Must have more than three characters           | N/A     |
+| Name      | Description                                                    | Type   | Validation                                      | Default | Required |
+|-----------|----------------------------------------------------------------|--------|-------------------------------------------------|---------|----------|
+| `stage`   | The stage of development (e.g., test, dev, staging, prod).     | string | Must be one of `test`, `dev`, `staging`, `prod` |         | yes      |
+| `purpose` | A short description about the purpose of the created resource. | string | Must match the regex `^[a-zA-Z0-9-_]*$`         |         | yes      |
+| `owner`   | The owner of the deployed infrastructure.                      | string | Must have more than three characters            |         | yes      |
 
 ## Custom Variables
 
-| Name            | Description                                      | Type   | Default              |
-|-----------------|--------------------------------------------------|--------|----------------------|
-| `domain_name`   | The name of the domain to attach the certificate.| string | `null`               |
-| `validate_cert` | Indicate whether to validate the certificate.    | bool   | `true`               |
-| `zone_name`     | The name of the Route 53 hosted zone.            | string | `jordibru.cloud`     |
+| Name        | Description                 | Type   | Validation  | Default | Required |
+|-------------|-----------------------------|--------|-------------|---------|----------|
+| `subdomain` | The name of the subdomain.  | string |             |         | yes      |
 
 ## Outputs
 
 | Name                       | Description                                      |
 |----------------------------|--------------------------------------------------|
 | `certificate_arn`          | The ARN of the validated ACM certificate.        |
-| `domain_validation_options`| The domain validation options for the ACM certificate. |
 
 ## Usage
 
